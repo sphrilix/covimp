@@ -20,9 +20,4 @@ class Participant:
         self.address = address
 
     def __str__(self):
-        return "{0},{1},{2}".format(self.name, self.mail, self.address)
-
-
-p = Participant("m", "msdadadad@ndadadadada.de", Address("94051", "H", "s", "10"))
-print(p)
-print(p)
+        return "Name: {0} \nMail: {1} \nAddress: {2}".format(self.name, self.mail, self.address)
