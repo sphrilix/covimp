@@ -21,3 +21,6 @@ class Participant:
 
     def __str__(self):
         return "Name: {0} \nMail: {1} \nAddress: {2}".format(self.name, self.mail, self.address)
+
+    def __eq__(self, other):
+        return self.name == other.name
