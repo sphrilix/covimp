@@ -1,3 +1,4 @@
+from pair import Pair
 from participant import Participant
 from address import Address
 
@@ -13,17 +14,17 @@ def read_participants():
         return participants
 
 
-def write_data(participants: []):
-    with open("participants.txt", "a") as file:
-        for p in participants:
-            if isinstance(p, Participant):
-                file.write(p.name + "," + p.mail + "," + p.address.postal_code + "," + p.address.city + ","
-                           + p.address.street + "," + p.address.house_number + "\n")
+def write_data(pairs: []):
+    with open("pairs.txt", "w") as file:
+        for p in pairs:
+            if isinstance(p, Pair):
+                file.write(str(p))
 
-
+'''
 p = Participant("m", "msdadadad@ndadadadada.de", Address("94051", "H", "s", "10"))
 participants = [p, p]
 write_data(participants)
 p2 = read_participants()
 for p in p2:
     print(p)
+'''
