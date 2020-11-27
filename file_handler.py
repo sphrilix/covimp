@@ -1,30 +1,37 @@
-from pair import Pair
+from pathlib import Path
+
 from participant import Participant
 from address import Address
 
 
 def read_participants():
     participants = []
-    with open("participants.txt", "r") as file:
-        for line in file.readlines():
-            line.strip(" ")
-            raw_data = line.split(",")
-            participants.append(Participant(raw_data[0], raw_data[1], Address(raw_data[2], raw_data[3], raw_data[4],
-                                                                              raw_data[5])))
-        return participants
+    raw_data = read_data(Path("participants.txt").strip("\n"))
+    raw_participants = raw_data.split("\n")
+    for raw_participant in raw_participants:
+        raw_participant = raw_participant.split(",")
+        participants.append(Participant(raw_participant[0], raw_participant[1], Address(raw_participant[2],
+                                                                                        raw_participant[3],
+                                                                                        raw_participant[4],
+                                                                                        raw_participant[5])))
+    return participants
 
 
-def write_data(pairs: []):
-    with open("pairs.txt", "w") as file:
-        for p in pairs:
-            if isinstance(p, Pair):
-                file.write(str(p))
+def is_file_existing(file: Path):
+    return file.is_file()
 
-'''
-p = Participant("m", "msdadadad@ndadadadada.de", Address("94051", "H", "s", "10"))
-participants = [p, p]
-write_data(participants)
-p2 = read_participants()
-for p in p2:
-    print(p)
-'''
+
+def write_data(data: str, file: Path):
+    if is_file_existing(file):
+        with open(file, "w") as file:
+            file.write(data)
+    else:
+        raise ValueError("Invalid file")
+
+
+def read_data(file: Path):
+    if is_file_existing(file):
+        with open(file, "r") as file:
+            file.read()
+    else:
+        raise ValueError("Invalid file")
