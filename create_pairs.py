@@ -1,14 +1,17 @@
-from participant import Participant
-from address import Address
+from pathlib import Path
+from encryption import encrypt
 from pair import Pair
 from random import randint
-from file_handler import read_participants
-from  file_handler import write_data
+from file_handler import read_participants, write_data_as_bytes
 
 
 def main():
     pairs = create_random_pairs()
-    write_data(pairs)
+    pairs_str = ""
+    for pair in pairs:
+        pairs_str += str(pair)
+    encrypted_pairs = encrypt(pairs_str.encode())
+    write_data_as_bytes(encrypted_pairs, Path("pairs.txt"))
 
 
 def create_random_pairs():

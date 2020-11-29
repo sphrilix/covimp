@@ -6,7 +6,7 @@ from address import Address
 
 def read_participants():
     participants = []
-    raw_data = read_data(Path("participants.txt").strip("\n"))
+    raw_data = str(read_data(Path("participants.txt"))).strip("\n")
     raw_participants = raw_data.split("\n")
     for raw_participant in raw_participants:
         raw_participant = raw_participant.split(",")
@@ -32,6 +32,22 @@ def write_data(data: str, file: Path):
 def read_data(file: Path):
     if is_file_existing(file):
         with open(file, "r") as file:
-            file.read()
+            return file.read()
+    else:
+        raise ValueError("Invalid file")
+
+
+def read_data_as_bytes(file: Path):
+    if is_file_existing(file):
+        with open(file, "rb") as file:
+            return file.read()
+    else:
+        raise ValueError("Invalid file")
+
+
+def write_data_as_bytes(data: bytes, file: Path):
+    if is_file_existing(file):
+        with open(file, "wb") as file:
+            file.write(data)
     else:
         raise ValueError("Invalid file")
