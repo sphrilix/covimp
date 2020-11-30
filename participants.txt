@@ -1,6 +1,4 @@
-m,msdadadad@1secmail.com,94051,H,s,10
-a,msdadadad@1secmail.com,94051,H,s,10
-b,msdadadad@1secmail.com,94051,H,s,10
-c,msdadadad@1secmail.com,94051,H,s,10
-d,msdadadad@1secmail.com,94051,H,s,10
-e,msdadadad@1secmail.com,94051,H,s,10
+m j,m.junge@1secmail.com,12345,a,b,c
+m i,m.i@1secmail.com,12345,a,b,c
+m k,m.k@1secmail.com,12345,a,b,c
+m l,m.l@1secmail.com,12345,a,b,c
