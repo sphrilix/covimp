@@ -1,6 +1,5 @@
 from pathlib import Path
 import pyinputplus as pyinp
-
 from create_pairs import create_random_pairs
 from file_handler import read_data
 from mail_handler import send_mails
@@ -19,18 +18,9 @@ def main():
             if pyinp.inputYesNo() == "yes":
                 subject = pyinp.inputStr("Enter the subject of the mail to be sent: ")
                 salutations = pyinp.inputStr("Enter the salutations: ")
-                print("Enter message body.")
-                if pyinp.inputYesNo("Need multiple lines? ") == "yes":
-                    message_body = multi_line_input()
-                else:
-                    message_body = pyinp.inputStr("Enter one line message body: ")
-                print("Enter greetings.")
-                if pyinp.inputYesNo("Need multiple lines? ") == "yes":
-                    greetings = multi_line_input()
-                else:
-                    greetings = pyinp.inputStr("Enter one line greetings: ")
+                message_body = pyinp.inputStr("Enter the message body: ")
+                greetings = pyinp.inputStr("Enter greetings: ")
                 send_mails(create_random_pairs(), subject, salutations, message_body, greetings)
-                print(message_body)
                 print("Mails were sent. Merry Christmas!")
                 end = True
             else:
@@ -46,17 +36,6 @@ def main():
             else:
                 print("Merry christmas and a happy new year!")
                 end = True
-
-
-def multi_line_input():
-    multi_line_needed = True
-    entered_multi_line_str = pyinp.inputStr("Enter your line: ") + "\n"
-    while multi_line_needed:
-        if pyinp.inputYesNo("Need one more line? ") == "yes":
-            entered_multi_line_str += pyinp.inputStr("Enter your line: ") + "\n"
-        else:
-            multi_line_needed = False
-    return entered_multi_line_str
 
 
 # Entry point of the application
