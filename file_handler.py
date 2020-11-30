@@ -1,9 +1,10 @@
 from pathlib import Path
 
-from participant import Participant
 from address import Address
+from participant import Participant
 
 
+# Returning the participants by reading the participants.txt line by line
 def read_participants():
     participants = []
     raw_data = str(read_data(Path("participants.txt"))).strip("\n")
@@ -17,10 +18,12 @@ def read_participants():
     return participants
 
 
+# Check if file existing
 def is_file_existing(file: Path):
     return file.is_file()
 
 
+# Write given data in a given file
 def write_data(data: str, file: Path):
     if is_file_existing(file):
         with open(file, "w") as file:
@@ -29,6 +32,7 @@ def write_data(data: str, file: Path):
         raise ValueError("Invalid file")
 
 
+# Read a data from a given file
 def read_data(file: Path):
     if is_file_existing(file):
         with open(file, "r") as file:
@@ -37,6 +41,7 @@ def read_data(file: Path):
         raise ValueError("Invalid file")
 
 
+# Read data as bytes from a given file
 def read_data_as_bytes(file: Path):
     if is_file_existing(file):
         with open(file, "rb") as file:
@@ -45,6 +50,7 @@ def read_data_as_bytes(file: Path):
         raise ValueError("Invalid file")
 
 
+# Write given bytes to a given file
 def write_data_as_bytes(data: bytes, file: Path):
     if is_file_existing(file):
         with open(file, "wb") as file:
