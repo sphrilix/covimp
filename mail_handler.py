@@ -29,9 +29,3 @@ def send_mails(pairs: [], subject: str, salutations: str,message_body: str, gree
             message = message_template.format(subject, salutations + str(pair.imp.name), message_body,
                                               str(pair.receiver), greetings)
             server.sendmail(sender_mail, pair.imp.mail, message)
-
-'''
-if __name__ == '__main__':
-    send_mails([Pair(Participant("Hi", "a@b.de", Address("94051", "s", "d", "12")), Participant("i",
-                                                "maxi.jungwirth@gmail.com", Address("94051", "s", "d", "12")))], "Wichteln bei den Jungwirths", "Servus,\nDu darfst beschenken:\n", "Frohe WEihnachten")
-'''

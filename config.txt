@@ -1,1 +1,1 @@
-smtp.gmail.com,587,sphrilix@gmail.com,wixer&12
+smtp server,port,mail,pw
