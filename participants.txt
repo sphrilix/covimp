@@ -1,1 +1,1 @@
-name,mail,postal code,city,street,house number
+name,mail,postal code,city,street,house-number

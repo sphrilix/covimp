@@ -1,1 +1,1 @@
-smtp server,port,mail,pw
+smtp server,port,mail,password
